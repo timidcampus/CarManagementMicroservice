@@ -1,75 +1,43 @@
 package com.separttwo.carmanagementmicroservice;
 
-import lombok.AllArgsConstructor;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.Getter;
+//import lombok.NoArgsConstructor;
+//import lombok.AllArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
 import java.io.Serializable;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 @RedisHash("Car")
 public class Car implements Serializable {
     @Id
+    @Getter @Setter
     private String id;
-
+    @Getter @Setter
     private String name;
+    @Getter @Setter
     private int seats;
+    @Getter @Setter
     private double price;
+    @Getter @Setter
     private String transmission;
+    @Getter @Setter
     private String image;
+    @JsonProperty("isAvailable")
     private boolean isAvailable;
 
-    public void setName(String name) {
-        this.name = name;
+    public void setIsAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
 
-    public void setSeats(int seats) {
-        this.seats = seats;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setTransmission(String transmission) {
-        this.transmission = transmission;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getSeats() {
-        return seats;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public String getTransmission() {
-        return transmission;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public boolean isAvailable() {
+    public boolean getIsAvailable() {
         return isAvailable;
     }
 
