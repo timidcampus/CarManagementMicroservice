@@ -1,19 +1,14 @@
-# Use the official OpenJDK 17 base image
+# Use the official OpenJDK image as the base image
 FROM openjdk:17-jdk
 
-# Set the working directory in the container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the Maven pom.xml file into the working directory
-COPY pom.xml .
+# Copy the compiled Java application and its dependencies into the container
+COPY target/*.jar /app/carmanager.jar
 
-# Install any missing dependencies
-RUN mvn dependency:go-offline
+# Expose the port that the application will run on
+EXPOSE 8080
 
-# Copy the source code into the working directory
-COPY src ./src
-
-# Package the application
-RUN mvn package -DskipTests
-
-ENTRYPOINT ["java", "-jar", "target/car-management-microservice-0.0.1-SNAPSHOT.jar"]
+# Start the Java application
+CMD ["java", "-jar", "/app/carmanager.jar"]
