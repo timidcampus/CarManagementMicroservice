@@ -18,8 +18,8 @@ public class Car implements Serializable {
     private int seats;
     private double price;
     private String transmission;
-    private double dailyRate;
     private String image;
+    private boolean isAvailable;
 
     public void setName(String name) {
         this.name = name;
@@ -37,12 +37,12 @@ public class Car implements Serializable {
         this.transmission = transmission;
     }
 
-    public void setDailyRate(double dailyRate) {
-        this.dailyRate = dailyRate;
-    }
-
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 
     public String getId() {
@@ -65,23 +65,23 @@ public class Car implements Serializable {
         return transmission;
     }
 
-    public double getDailyRate() {
-        return dailyRate;
-    }
-
     public String getImage() {
         return image;
     }
 
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
     public Car() {}
 
-    public Car(String name, int seats, Double price, String transmission, Double dailyRate, String image) {
+    public Car(String name, int seats, Double price, String transmission, String image, boolean isAvailable) {
         this.name = name;
         this.seats = seats;
         this.price = price;
         this.transmission = transmission;
-        this.dailyRate = dailyRate;
         this.image = image;
+        this.isAvailable = isAvailable;
     }
 
 }
