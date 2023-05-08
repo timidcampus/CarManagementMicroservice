@@ -1,4 +1,6 @@
-package com.separttwo.carmanagementmicroservice;
+package com.separttwo.carmanagementmicroservice.interfaces;
+
+import com.separttwo.carmanagementmicroservice.entities.Car;
 
 import java.util.List;
 

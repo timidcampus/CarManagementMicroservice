@@ -1,7 +1,8 @@
 package com.separttwo.carmanagementmicroservice;
 
+import com.separttwo.carmanagementmicroservice.entities.Car;
+import com.separttwo.carmanagementmicroservice.interfaces.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

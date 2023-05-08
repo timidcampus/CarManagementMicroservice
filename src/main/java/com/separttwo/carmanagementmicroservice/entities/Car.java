@@ -1,4 +1,4 @@
-package com.separttwo.carmanagementmicroservice;
+package com.separttwo.carmanagementmicroservice.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
