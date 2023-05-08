@@ -1,6 +1,7 @@
 package com.separttwo.carmanagementmicroservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/car-rental/api/v1/cars")
 public class CarController {
+
     @Autowired
     private CarService carService;
 

@@ -6,4 +6,5 @@ public interface CarService {
     Car saveCar(Car car);
     List<Car> getAllCars();
     Car getCar(String id);
+    void sendCarToKafka(Car car);
 }

@@ -1,6 +1,7 @@
 package com.separttwo.carmanagementmicroservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,9 +13,18 @@ public class CarServiceImpl implements CarService {
     @Autowired
     private CarRepository carRepository;
 
+    @Autowired
+    private KafkaTemplate<String, Car> kafkaTemplate;
+
+    @Override
+    public void sendCarToKafka(Car car) {
+        kafkaTemplate.send("createdCar", car);
+    }
     @Override
     public Car saveCar(Car car) {
-        return carRepository.save(car);
+        Car savedCar = carRepository.save(car);
+        sendCarToKafka(savedCar);
+        return savedCar;
     }
 
     @Override
@@ -28,5 +38,7 @@ public class CarServiceImpl implements CarService {
     public Car getCar(String id) {
         return carRepository.findById(id).orElse(null);
     }
+
+
 
 }
